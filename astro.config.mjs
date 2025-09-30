@@ -3,5 +3,6 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   integrations: [tailwind()],
-  site: 'https://solarpowerco.com',
+  site: 'https://amrpyt.github.io',
+  base: '/solar-panel-website-demo',
 });

@@ -1,8 +1,8 @@
 backend:
-  name: test-repo
-  # For production, use:
-  # name: git-gateway
-  # branch: main
+  name: github
+  repo: amrpyt/solar-panel-website-demo
+  branch: main
+  # For local testing, use: name: test-repo
 
 # Uncomment below to enable drafts
 # publish_mode: editorial_workflow
