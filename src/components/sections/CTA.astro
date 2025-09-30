@@ -1,5 +1,7 @@
 ---
 import Button from '../Button.astro';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <section class="py-20 bg-gradient-to-r from-primary-600 via-primary-700 to-secondary-600 relative overflow-hidden">
@@ -28,7 +30,7 @@ import Button from '../Button.astro';
       </p>
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style="animation-delay: 0.2s">
-        <Button href="/contact" variant="secondary" size="lg" class="!bg-white !text-primary-600 hover:!bg-gray-100 !shadow-2xl">
+        <Button href={`${base}contact`} variant="secondary" size="lg" class="!bg-white !text-primary-600 hover:!bg-gray-100 !shadow-2xl">
           Get Free Quote
         </Button>
         <a

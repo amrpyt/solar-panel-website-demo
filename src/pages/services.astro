@@ -8,6 +8,8 @@ import SolarPanel from '../components/icons/SolarPanel.astro';
 import Installation from '../components/icons/Installation.astro';
 import Maintenance from '../components/icons/Maintenance.astro';
 import Consulting from '../components/icons/Consulting.astro';
+
+const base = import.meta.env.BASE_URL;
 import Battery from '../components/icons/Battery.astro';
 import LeafEnergy from '../components/icons/LeafEnergy.astro';
 
@@ -199,7 +201,7 @@ const schema = {
       </div>
 
       <div class="text-center mt-12 animate-on-scroll">
-        <Button href="/contact" variant="primary" size="lg">
+        <Button href={`${base}contact`} variant="primary" size="lg">
           Request a Quote
         </Button>
       </div>
@@ -287,7 +289,7 @@ const schema = {
         Get a free, no-obligation consultation and personalized quote for your solar project.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style="animation-delay: 0.2s">
-        <Button href="/contact" variant="secondary" size="lg" class="!bg-white !text-primary-600 hover:!bg-gray-100">
+        <Button href={`${base}contact`} variant="secondary" size="lg" class="!bg-white !text-primary-600 hover:!bg-gray-100">
           Get Free Quote
         </Button>
         <a

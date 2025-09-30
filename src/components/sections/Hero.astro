@@ -1,5 +1,7 @@
 ---
 import Button from '../Button.astro';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary-50 via-white to-secondary-50">
@@ -24,10 +26,10 @@ import Button from '../Button.astro';
           Transform your home or business with cutting-edge solar technology. Save money, reduce your carbon footprint, and invest in a sustainable future.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-          <Button href="/contact" variant="primary" size="lg">
+          <Button href={`${base}contact`} variant="primary" size="lg">
             Get Free Quote
           </Button>
-          <Button href="/services" variant="outline" size="lg">
+          <Button href={`${base}services`} variant="outline" size="lg">
             Our Services
           </Button>
         </div>

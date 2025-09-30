@@ -8,6 +8,8 @@ import Shield from '../components/icons/Shield.astro';
 import Award from '../components/icons/Award.astro';
 import LeafEnergy from '../components/icons/LeafEnergy.astro';
 
+const base = import.meta.env.BASE_URL;
+
 const values = [
   {
     icon: Shield,
@@ -232,7 +234,7 @@ const schema = {
         Let's work together to create a sustainable future. Contact us today for a free consultation.
       </p>
       <div class="animate-fade-in-up" style="animation-delay: 0.2s">
-        <Button href="/contact" variant="secondary" size="lg" class="!bg-white !text-primary-600 hover:!bg-gray-100">
+        <Button href={`${base}contact`} variant="secondary" size="lg" class="!bg-white !text-primary-600 hover:!bg-gray-100">
           Get in Touch
         </Button>
       </div>

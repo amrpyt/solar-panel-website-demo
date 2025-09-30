@@ -2,13 +2,14 @@
 import Logo from './icons/Logo.astro';
 
 const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
 
 const navItems = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Services', href: '/services' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Home', href: `${base}` },
+  { name: 'About', href: `${base}about` },
+  { name: 'Services', href: `${base}services` },
+  { name: 'Blog', href: `${base}blog` },
+  { name: 'Contact', href: `${base}contact` },
 ];
 ---
 
@@ -16,7 +17,7 @@ const navItems = [
   <nav class="container mx-auto px-4 py-4">
     <div class="flex items-center justify-between">
       <!-- Logo -->
-      <a href="/" class="flex items-center hover:opacity-80 transition-opacity">
+      <a href={base} class="flex items-center hover:opacity-80 transition-opacity">
         <Logo class="h-12 w-auto" />
       </a>
 
@@ -38,7 +39,7 @@ const navItems = [
 
       <!-- CTA Button -->
       <a
-        href="/contact"
+        href={`${base}contact`}
         class="hidden md:block bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-lg font-semibold transition-colors shadow-lg shadow-primary-600/30"
       >
         Get Quote
@@ -87,7 +88,7 @@ const navItems = [
         ))}
         <li class="pt-2">
           <a
-            href="/contact"
+            href={`${base}contact`}
             class="block bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-lg font-semibold transition-colors text-center shadow-lg shadow-primary-600/30"
           >
             Get Quote
