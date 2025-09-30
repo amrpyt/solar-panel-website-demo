@@ -1,0 +1,128 @@
+---
+import Button from '../Button.astro';
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+  <!-- Animated Background Elements -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-20 left-10 w-64 h-64 bg-primary-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
+    <div class="absolute bottom-20 right-10 w-80 h-80 bg-secondary-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style="animation-delay: 1s;"></div>
+    <div class="absolute top-1/2 left-1/2 w-72 h-72 bg-primary-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style="animation-delay: 2s;"></div>
+  </div>
+
+  <div class="container mx-auto px-4 py-20 relative z-10">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <!-- Text Content -->
+      <div class="text-center md:text-left animate-fade-in-up">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+          Power Your Future with
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600">
+            Clean Energy
+          </span>
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 max-w-xl">
+          Transform your home or business with cutting-edge solar technology. Save money, reduce your carbon footprint, and invest in a sustainable future.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <Button href="/contact" variant="primary" size="lg">
+            Get Free Quote
+          </Button>
+          <Button href="/services" variant="outline" size="lg">
+            Our Services
+          </Button>
+        </div>
+        
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-6 mt-12 max-w-xl">
+          <div class="text-center md:text-left">
+            <div class="text-3xl font-bold text-primary-600">15+</div>
+            <div class="text-sm text-gray-600">Years Experience</div>
+          </div>
+          <div class="text-center md:text-left">
+            <div class="text-3xl font-bold text-primary-600">5000+</div>
+            <div class="text-sm text-gray-600">Projects Completed</div>
+          </div>
+          <div class="text-center md:text-left">
+            <div class="text-3xl font-bold text-primary-600">98%</div>
+            <div class="text-sm text-gray-600">Client Satisfaction</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Image/Illustration -->
+      <div class="relative animate-fade-in">
+        <div class="relative">
+          <!-- Solar Panel Illustration -->
+          <svg viewBox="0 0 500 500" class="w-full h-auto drop-shadow-2xl">
+            <!-- Sun -->
+            <circle cx="400" cy="100" r="60" fill="#fbbf24" opacity="0.3"/>
+            <circle cx="400" cy="100" r="45" fill="#fbbf24"/>
+            <g stroke="#f59e0b" stroke-width="4" stroke-linecap="round">
+              <line x1="400" y1="30" x2="400" y2="50"/>
+              <line x1="400" y1="150" x2="400" y2="170"/>
+              <line x1="330" y1="100" x2="350" y2="100"/>
+              <line x1="450" y1="100" x2="470" y2="100"/>
+              <line x1="345" y1="55" x2="360" y2="70"/>
+              <line x1="440" y1="130" x2="455" y2="145"/>
+              <line x1="455" y1="55" x2="440" y2="70"/>
+              <line x1="360" y1="130" x2="345" y2="145"/>
+            </g>
+
+            <!-- House with Solar Panels -->
+            <rect x="100" y="250" width="300" height="200" fill="#e5e7eb" stroke="#9ca3af" stroke-width="3"/>
+            
+            <!-- Roof with Solar Panels -->
+            <path d="M 80 250 L 250 150 L 420 250 Z" fill="#1e40af" stroke="#1e3a8a" stroke-width="3"/>
+            
+            <!-- Solar Panel Grid on Roof -->
+            <g stroke="#1e3a8a" stroke-width="2">
+              <line x1="150" y1="170" x2="150" y2="245"/>
+              <line x1="190" y1="180" x2="190" y2="245"/>
+              <line x1="230" y1="185" x2="230" y2="245"/>
+              <line x1="270" y1="185" x2="270" y2="245"/>
+              <line x1="310" y1="180" x2="310" y2="245"/>
+              <line x1="350" y1="170" x2="350" y2="245"/>
+            </g>
+            
+            <!-- Solar Panel Highlights -->
+            <path d="M 160 180 L 175 180 L 170 190 Z" fill="#60a5fa" opacity="0.6"/>
+            <path d="M 240 190 L 255 190 L 250 200 Z" fill="#60a5fa" opacity="0.6"/>
+            <path d="M 320 190 L 335 190 L 330 200 Z" fill="#60a5fa" opacity="0.6"/>
+
+            <!-- Windows -->
+            <rect x="140" y="300" width="60" height="80" fill="#93c5fd" stroke="#3b82f6" stroke-width="2"/>
+            <rect x="220" y="300" width="60" height="80" fill="#93c5fd" stroke="#3b82f6" stroke-width="2"/>
+            <rect x="300" y="300" width="60" height="80" fill="#93c5fd" stroke="#3b82f6" stroke-width="2"/>
+            
+            <!-- Door -->
+            <rect x="180" y="360" width="50" height="90" fill="#92400e" stroke="#78350f" stroke-width="2"/>
+            <circle cx="220" cy="405" r="3" fill="#fbbf24"/>
+
+            <!-- Energy Flow Indicators -->
+            <g class="energy-flow">
+              <circle cx="250" cy="200" r="4" fill="#22c55e">
+                <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="250" cy="220" r="4" fill="#22c55e">
+                <animate attributeName="opacity" values="0;1;0" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="250" cy="240" r="4" fill="#22c55e">
+                <animate attributeName="opacity" values="0;1;0" dur="2s" begin="1s" repeatCount="indefinite"/>
+              </circle>
+            </g>
+
+            <!-- Ground -->
+            <ellipse cx="250" cy="450" rx="180" ry="20" fill="#10b981" opacity="0.3"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+---
+export interface Props {
+  subtitle?: string;
+  title: string;
+  description?: string;
+  centered?: boolean;
+  class?: string;
+}
+
+const { 
+  subtitle, 
+  title, 
+  description, 
+  centered = true,
+  class: className = '' 
+} = Astro.props;
+
+const alignment = centered ? 'text-center' : 'text-left';
+const container = centered ? 'mx-auto' : '';
+---
+
+<div class={`mb-12 ${alignment} ${className}`}>
+  {subtitle && (
+    <span class="inline-block text-primary-600 font-semibold text-sm uppercase tracking-wider mb-2 animate-on-scroll">
+      {subtitle}
+    </span>
+  )}
+  <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 animate-on-scroll">
+    {title}
+  </h2>
+  {description && (
+    <p class={`text-lg text-gray-600 max-w-2xl ${container} animate-on-scroll`}>
+      {description}
+    </p>
+  )}
+</div>

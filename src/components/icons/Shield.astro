@@ -1,0 +1,18 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<svg class={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shield -->
+  <path d="M 32 8 L 50 16 L 50 32 Q 50 48 32 56 Q 14 48 14 32 L 14 16 Z" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="2"/>
+  
+  <!-- Checkmark -->
+  <path d="M 22 32 L 28 38 L 42 24" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Inner shield detail -->
+  <path d="M 32 12 L 46 18 L 46 32 Q 46 44 32 50 Q 18 44 18 32 L 18 18 Z" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
+</svg>

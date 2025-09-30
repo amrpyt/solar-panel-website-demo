@@ -1,0 +1,23 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<svg class={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Leaf -->
+  <path d="M 15 45 Q 15 15 45 15 Q 45 30 30 45 Q 22.5 37.5 15 45 Z" fill="#22c55e" stroke="#16a34a" stroke-width="2"/>
+  
+  <!-- Leaf vein -->
+  <path d="M 30 45 Q 35 30 42 18" stroke="#16a34a" stroke-width="1.5" fill="none"/>
+  
+  <!-- Lightning bolt inside -->
+  <path d="M 32 22 L 28 32 L 32 32 L 30 40 L 36 30 L 32 30 Z" fill="#fbbf24" stroke="#f59e0b" stroke-width="1"/>
+  
+  <!-- Energy circles -->
+  <circle cx="48" cy="48" r="3" fill="#fbbf24" opacity="0.6"/>
+  <circle cx="52" cy="44" r="2" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="44" cy="52" r="2.5" fill="#fbbf24" opacity="0.7"/>
+</svg>

@@ -1,0 +1,74 @@
+---
+import SectionTitle from '../SectionTitle.astro';
+import Card from '../Card.astro';
+import SolarPanel from '../icons/SolarPanel.astro';
+import Installation from '../icons/Installation.astro';
+import Maintenance from '../icons/Maintenance.astro';
+import Consulting from '../icons/Consulting.astro';
+import Battery from '../icons/Battery.astro';
+import LeafEnergy from '../icons/LeafEnergy.astro';
+
+const services = [
+  {
+    icon: SolarPanel,
+    title: 'Solar Panel Installation',
+    description: 'Professional installation of high-efficiency solar panels tailored to your energy needs and property specifications.',
+  },
+  {
+    icon: Battery,
+    title: 'Energy Storage Solutions',
+    description: 'Advanced battery systems to store excess energy and ensure power availability during outages or peak hours.',
+  },
+  {
+    icon: Maintenance,
+    title: 'Maintenance & Repair',
+    description: 'Regular maintenance services and quick repairs to keep your solar system running at peak efficiency.',
+  },
+  {
+    icon: Consulting,
+    title: 'Energy Consulting',
+    description: 'Expert analysis and recommendations to optimize your energy consumption and maximize savings.',
+  },
+  {
+    icon: Installation,
+    title: 'System Upgrades',
+    description: 'Upgrade your existing solar system with the latest technology for improved performance and efficiency.',
+  },
+  {
+    icon: LeafEnergy,
+    title: 'Green Energy Solutions',
+    description: 'Comprehensive renewable energy solutions including wind, solar, and hybrid systems for complete energy independence.',
+  },
+];
+---
+
+<section id="services" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <SectionTitle
+      subtitle="Our Services"
+      title="Comprehensive Solar Solutions"
+      description="From consultation to installation and maintenance, we provide end-to-end solar energy solutions for homes and businesses."
+    />
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+      {services.map((service, index) => (
+        <Card class="animate-on-scroll" style={`animation-delay: ${index * 0.1}s`}>
+          <div class="mb-4">
+            <service.icon class="w-16 h-16 text-primary-600" />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+          <p class="text-gray-600">{service.description}</p>
+          <a
+            href="/services"
+            class="inline-flex items-center mt-4 text-primary-600 hover:text-primary-700 font-semibold transition-colors"
+          >
+            Learn More
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>

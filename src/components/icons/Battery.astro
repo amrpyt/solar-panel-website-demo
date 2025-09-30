@@ -1,0 +1,23 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<svg class={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Battery body -->
+  <rect x="10" y="20" width="40" height="24" rx="3" fill="white" stroke="#22c55e" stroke-width="2.5"/>
+  
+  <!-- Battery terminal -->
+  <rect x="50" y="28" width="4" height="8" rx="1" fill="#22c55e"/>
+  
+  <!-- Charge level -->
+  <rect x="13" y="23" width="10" height="18" rx="1" fill="#22c55e"/>
+  <rect x="25" y="23" width="10" height="18" rx="1" fill="#22c55e"/>
+  <rect x="37" y="23" width="9" height="18" rx="1" fill="#86efac"/>
+  
+  <!-- Lightning bolt -->
+  <path d="M 30 15 L 24 28 L 30 28 L 28 40 L 36 27 L 30 27 Z" fill="#fbbf24" stroke="#f59e0b" stroke-width="1"/>
+</svg>

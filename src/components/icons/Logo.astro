@@ -1,0 +1,27 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<svg class={className} viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sun circle -->
+  <circle cx="30" cy="30" r="18" fill="#f59e0b" opacity="0.2"/>
+  <circle cx="30" cy="30" r="12" fill="#f59e0b"/>
+  
+  <!-- Sun rays -->
+  <line x1="30" y1="5" x2="30" y2="12" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+  <line x1="30" y1="48" x2="30" y2="55" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+  <line x1="5" y1="30" x2="12" y2="30" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+  <line x1="48" y1="30" x2="55" y2="30" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+  <line x1="12" y1="12" x2="17" y2="17" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+  <line x1="43" y1="43" x2="48" y2="48" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+  <line x1="48" y1="12" x2="43" y2="17" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+  <line x1="17" y1="43" x2="12" y2="48" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Text -->
+  <text x="65" y="25" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2937">SolarPower</text>
+  <text x="65" y="42" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Clean Energy Solutions</text>
+</svg>

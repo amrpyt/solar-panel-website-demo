@@ -1,0 +1,28 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<svg class={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Solar panel grid -->
+  <rect x="8" y="16" width="48" height="32" fill="#1e40af" stroke="#1e3a8a" stroke-width="2"/>
+  
+  <!-- Grid lines -->
+  <line x1="20" y1="16" x2="20" y2="48" stroke="#1e3a8a" stroke-width="1"/>
+  <line x1="32" y1="16" x2="32" y2="48" stroke="#1e3a8a" stroke-width="1"/>
+  <line x1="44" y1="16" x2="44" y2="48" stroke="#1e3a8a" stroke-width="1"/>
+  <line x1="8" y1="26.67" x2="56" y2="26.67" stroke="#1e3a8a" stroke-width="1"/>
+  <line x1="8" y1="37.33" x2="56" y2="37.33" stroke="#1e3a8a" stroke-width="1"/>
+  
+  <!-- Reflections -->
+  <path d="M 10 18 L 18 18 L 14 22 Z" fill="#60a5fa" opacity="0.6"/>
+  <path d="M 34 30 L 42 30 L 38 34 Z" fill="#60a5fa" opacity="0.6"/>
+  
+  <!-- Stand -->
+  <line x1="20" y1="48" x2="16" y2="58" stroke="#4b5563" stroke-width="2"/>
+  <line x1="44" y1="48" x2="48" y2="58" stroke="#4b5563" stroke-width="2"/>
+  <line x1="16" y1="58" x2="48" y2="58" stroke="#4b5563" stroke-width="3"/>
+</svg>

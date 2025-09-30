@@ -1,0 +1,305 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import JsonLd from '../components/JsonLd.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+import SolarPanel from '../components/icons/SolarPanel.astro';
+import Installation from '../components/icons/Installation.astro';
+import Maintenance from '../components/icons/Maintenance.astro';
+import Consulting from '../components/icons/Consulting.astro';
+import Battery from '../components/icons/Battery.astro';
+import LeafEnergy from '../components/icons/LeafEnergy.astro';
+
+const services = [
+  {
+    icon: SolarPanel,
+    title: 'Solar Panel Installation',
+    description: 'Professional installation of high-efficiency solar panels tailored to your specific energy needs and property specifications.',
+    features: [
+      'Site assessment and energy audit',
+      'Custom system design',
+      'Premium solar panels',
+      'Professional installation',
+      '25-year warranty',
+    ],
+    benefits: 'Reduce energy bills by up to 80%',
+  },
+  {
+    icon: Battery,
+    title: 'Energy Storage Solutions',
+    description: 'Advanced battery systems to store excess solar energy for use during outages, nighttime, or peak demand hours.',
+    features: [
+      'High-capacity lithium batteries',
+      'Smart energy management',
+      'Backup power capability',
+      'Grid independence options',
+      '10-year warranty',
+    ],
+    benefits: 'Never lose power during outages',
+  },
+  {
+    icon: Installation,
+    title: 'System Upgrades',
+    description: 'Upgrade your existing solar system with the latest technology to improve performance, efficiency, and energy output.',
+    features: [
+      'System performance analysis',
+      'Latest panel technology',
+      'Inverter upgrades',
+      'Capacity expansion',
+      'Smart monitoring systems',
+    ],
+    benefits: 'Increase energy production by 30%',
+  },
+  {
+    icon: Maintenance,
+    title: 'Maintenance & Repair',
+    description: 'Comprehensive maintenance services and prompt repairs to ensure your solar system operates at peak efficiency year-round.',
+    features: [
+      'Annual system inspections',
+      'Panel cleaning services',
+      'Performance monitoring',
+      'Quick repair response',
+      'Parts replacement',
+    ],
+    benefits: 'Maximize system lifespan and ROI',
+  },
+  {
+    icon: Consulting,
+    title: 'Energy Consulting',
+    description: 'Expert analysis and strategic recommendations to optimize your energy consumption, maximize savings, and achieve sustainability goals.',
+    features: [
+      'Energy usage analysis',
+      'ROI calculations',
+      'Incentive guidance',
+      'Custom solutions',
+      'Long-term planning',
+    ],
+    benefits: 'Optimize energy savings strategy',
+  },
+  {
+    icon: LeafEnergy,
+    title: 'Commercial Solutions',
+    description: 'Comprehensive solar energy solutions for businesses, from small offices to large industrial facilities.',
+    features: [
+      'Large-scale installations',
+      'Corporate sustainability',
+      'Tax incentive optimization',
+      'Commercial financing',
+      'Fleet & EV charging',
+    ],
+    benefits: 'Reduce operating costs significantly',
+  },
+];
+
+const process = [
+  {
+    step: '01',
+    title: 'Consultation',
+    description: 'We assess your property, energy needs, and discuss your goals during a free consultation.',
+  },
+  {
+    step: '02',
+    title: 'Custom Design',
+    description: 'Our engineers create a tailored solar system design optimized for your specific requirements.',
+  },
+  {
+    step: '03',
+    title: 'Installation',
+    description: 'Our certified technicians install your system quickly and professionally, typically within 1-3 days.',
+  },
+  {
+    step: '04',
+    title: 'Activation',
+    description: 'We handle all permits, inspections, and grid connection to get your system up and running.',
+  },
+  {
+    step: '05',
+    title: 'Support',
+    description: 'Enjoy ongoing monitoring, maintenance, and support to ensure optimal performance for years.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Solar Energy Installation',
+  provider: {
+    '@type': 'Organization',
+    name: 'SolarPower Co.',
+  },
+  areaServed: 'United States',
+  description: 'Comprehensive solar energy solutions including installation, maintenance, and consulting services.',
+};
+---
+
+<BaseLayout
+  title="Services"
+  description="Explore our comprehensive solar energy services including installation, maintenance, energy storage, and consulting for homes and businesses."
+>
+  <JsonLd schema={schema} />
+
+  <!-- Hero Section -->
+  <section class="relative py-20 bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 animate-fade-in-up">
+          Comprehensive Solar Solutions
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 animate-fade-in-up" style="animation-delay: 0.1s">
+          From initial consultation to ongoing maintenance, we provide complete solar energy solutions 
+          designed to meet your unique needs and maximize your investment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        subtitle="What We Offer"
+        title="Our Services"
+        description="Tailored solar solutions for every need, backed by expert installation and ongoing support."
+      />
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {services.map((service, index) => (
+          <Card class="animate-on-scroll flex flex-col" style={`animation-delay: ${index * 0.1}s`}>
+            <div class="mb-4">
+              <service.icon class="w-16 h-16 text-primary-600" />
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">{service.title}</h3>
+            <p class="text-gray-600 mb-4">{service.description}</p>
+            
+            <div class="mb-4 flex-grow">
+              <h4 class="font-semibold text-gray-900 mb-2">Features:</h4>
+              <ul class="space-y-2">
+                {service.features.map((feature) => (
+                  <li class="flex items-start text-sm text-gray-600">
+                    <svg class="w-5 h-5 text-secondary-600 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="mt-4 pt-4 border-t">
+              <div class="flex items-center text-sm font-semibold text-primary-600">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                {service.benefits}
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+
+      <div class="text-center mt-12 animate-on-scroll">
+        <Button href="/contact" variant="primary" size="lg">
+          Request a Quote
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        subtitle="How It Works"
+        title="Our Process"
+        description="We've streamlined our process to make going solar as simple and hassle-free as possible."
+      />
+
+      <div class="relative mt-12">
+        <!-- Connection Line (Desktop) -->
+        <div class="hidden lg:block absolute top-12 left-0 right-0 h-1 bg-gradient-to-r from-primary-200 via-primary-400 to-secondary-400" style="top: 3rem;"></div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+          {process.map((item, index) => (
+            <div class="relative animate-on-scroll" style={`animation-delay: ${index * 0.1}s`}>
+              <!-- Step Number -->
+              <div class="flex justify-center mb-4">
+                <div class="relative z-10 w-24 h-24 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                  {item.step}
+                </div>
+              </div>
+              
+              <div class="text-center">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+                <p class="text-gray-600 text-sm">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        subtitle="Why Choose Us"
+        title="The SolarPower Advantage"
+        description="We're committed to delivering exceptional value through quality products, expert service, and unwavering support."
+      />
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+        <Card class="text-center animate-on-scroll">
+          <div class="text-4xl mb-4">🏆</div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Award-Winning</h3>
+          <p class="text-sm text-gray-600">Industry recognized excellence and innovation</p>
+        </Card>
+
+        <Card class="text-center animate-on-scroll" style="animation-delay: 0.1s">
+          <div class="text-4xl mb-4">⚡</div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Fast Installation</h3>
+          <p class="text-sm text-gray-600">Most projects completed in 1-3 days</p>
+        </Card>
+
+        <Card class="text-center animate-on-scroll" style="animation-delay: 0.2s">
+          <div class="text-4xl mb-4">🛡️</div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">25-Year Warranty</h3>
+          <p class="text-sm text-gray-600">Comprehensive coverage for peace of mind</p>
+        </Card>
+
+        <Card class="text-center animate-on-scroll" style="animation-delay: 0.3s">
+          <div class="text-4xl mb-4">💰</div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Flexible Financing</h3>
+          <p class="text-sm text-gray-600">Affordable payment options available</p>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-primary-600 to-secondary-600">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 animate-fade-in-up">
+        Ready to Start Your Solar Journey?
+      </h2>
+      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 0.1s">
+        Get a free, no-obligation consultation and personalized quote for your solar project.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style="animation-delay: 0.2s">
+        <Button href="/contact" variant="secondary" size="lg" class="!bg-white !text-primary-600 hover:!bg-gray-100">
+          Get Free Quote
+        </Button>
+        <a
+          href="tel:+15551234567"
+          class="inline-flex items-center justify-center gap-2 text-white font-semibold px-8 py-3 text-lg border-2 border-white rounded-lg hover:bg-white hover:text-primary-600 transition-all"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          Call Now
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

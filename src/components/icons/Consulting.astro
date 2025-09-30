@@ -1,0 +1,26 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<svg class={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Document -->
+  <rect x="15" y="10" width="30" height="42" rx="2" fill="white" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="20" y1="20" x2="40" y2="20" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="20" y1="27" x2="40" y2="27" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="20" y1="34" x2="35" y2="34" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <!-- Lightbulb -->
+  <circle cx="48" cy="18" r="8" fill="#fbbf24" opacity="0.3"/>
+  <path d="M 48 12 Q 52 12 52 16 Q 52 20 48 22 Q 44 20 44 16 Q 44 12 48 12 Z" fill="#fbbf24"/>
+  <rect x="46" y="22" width="4" height="3" fill="#fbbf24"/>
+  <rect x="45" y="25" width="6" height="1" fill="#d97706"/>
+  
+  <!-- Chart -->
+  <rect x="20" y="40" width="4" height="8" fill="#22c55e"/>
+  <rect x="27" y="36" width="4" height="12" fill="#3b82f6"/>
+  <rect x="34" y="38" width="4" height="10" fill="#8b5cf6"/>
+</svg>

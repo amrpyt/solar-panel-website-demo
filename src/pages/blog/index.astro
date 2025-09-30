@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import Card from '../../components/Card.astro';
+import { getCollection } from 'astro:content';
+
+const blogPosts = await getCollection('blog');
+const sortedPosts = blogPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout
+  title="Blog"
+  description="Read the latest news, tips, and insights about solar energy and sustainable living from SolarPower Co."
+>
+  <!-- Hero Section -->
+  <section class="relative py-20 bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 animate-fade-in-up">
+          Blog & News
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 animate-fade-in-up" style="animation-delay: 0.1s">
+          Stay updated with the latest solar energy news, tips, and industry insights.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Posts -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      {sortedPosts.length > 0 ? (
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {sortedPosts.map((post, index) => (
+            <Card class="animate-on-scroll" style={`animation-delay: ${index * 0.1}s`}>
+              {post.data.image && (
+                <img 
+                  src={post.data.image} 
+                  alt={post.data.title}
+                  class="w-full h-48 object-cover rounded-lg mb-4"
+                />
+              )}
+              <div class="text-sm text-gray-500 mb-2">
+                {post.data.date.toLocaleDateString('en-US', { 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric' 
+                })}
+              </div>
+              <h2 class="text-2xl font-bold text-gray-900 mb-3">
+                {post.data.title}
+              </h2>
+              <p class="text-gray-600 mb-4">
+                {post.data.description}
+              </p>
+              {post.data.tags && (
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {post.data.tags.map((tag: string) => (
+                    <span class="text-xs bg-primary-100 text-primary-700 px-2 py-1 rounded">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+              <a 
+                href={`/blog/${post.slug}`}
+                class="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold transition-colors"
+              >
+                Read More
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </a>
+            </Card>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">No Blog Posts Yet</h2>
+          <p class="text-gray-600 mb-8">Check back soon for the latest news and updates!</p>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,127 @@
+backend:
+  name: test-repo
+  # For production, use:
+  # name: git-gateway
+  # branch: main
+
+# Uncomment below to enable drafts
+# publish_mode: editorial_workflow
+
+media_folder: "public/images/uploads" # Media files will be stored here
+public_folder: "/images/uploads" # The src attribute for uploaded media
+
+collections:
+  # Blog Posts Collection
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  # Projects Collection
+  - name: "projects"
+    label: "Projects"
+    folder: "src/content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Category", name: "category", widget: "select", options: ["Residential", "Commercial", "Industrial", "Community", "Agricultural", "Educational"]}
+      - {label: "Capacity", name: "capacity", widget: "string"}
+      - {label: "Location", name: "location", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {label: "Completion Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  # Testimonials Collection
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "src/content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Role/Company", name: "role", widget: "string"}
+      - {label: "Rating", name: "rating", widget: "number", default: 5, min: 1, max: 5}
+      - {label: "Testimonial", name: "content", widget: "text"}
+      - {label: "Avatar/Emoji", name: "avatar", widget: "string", default: "👤"}
+      - {label: "Date", name: "date", widget: "datetime"}
+
+  # Services Collection
+  - name: "services"
+    label: "Services"
+    folder: "src/content/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Icon", name: "icon", widget: "select", options: ["SolarPanel", "Battery", "Installation", "Maintenance", "Consulting", "LeafEnergy"]}
+      - {label: "Short Description", name: "description", widget: "text"}
+      - {label: "Benefits", name: "benefits", widget: "string"}
+      - {label: "Features", name: "features", widget: "list"}
+      - {label: "Order", name: "order", widget: "number", default: 1}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  # Pages Collection
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "src/content/pages/home.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Hero Title", name: "heroTitle", widget: "string"}
+          - {label: "Hero Subtitle", name: "heroSubtitle", widget: "text"}
+          - {label: "Hero CTA Text", name: "heroCTA", widget: "string", default: "Get Free Quote"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      
+      - label: "About Page"
+        name: "about"
+        file: "src/content/pages/about.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      
+      - label: "Contact Page"
+        name: "contact"
+        file: "src/content/pages/contact.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Phone", name: "phone", widget: "string"}
+          - {label: "Address", name: "address", widget: "text"}
+          - {label: "Body", name: "body", widget: "markdown"}
+
+  # Site Settings
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "General Settings"
+        name: "general"
+        file: "src/content/settings/general.json"
+        fields:
+          - {label: "Site Title", name: "siteTitle", widget: "string"}
+          - {label: "Site Description", name: "siteDescription", widget: "text"}
+          - {label: "Site URL", name: "siteUrl", widget: "string"}
+          - {label: "Company Name", name: "companyName", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Phone", name: "phone", widget: "string"}
+          - {label: "Address", name: "address", widget: "text"}
+          - {label: "Social Media", name: "social", widget: "object", fields: [
+              {label: "Facebook", name: "facebook", widget: "string", required: false},
+              {label: "Twitter", name: "twitter", widget: "string", required: false},
+              {label: "LinkedIn", name: "linkedin", widget: "string", required: false},
+              {label: "Instagram", name: "instagram", widget: "string", required: false}
+            ]}

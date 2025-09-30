@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import JsonLd from '../components/JsonLd.astro';
+import Hero from '../components/sections/Hero.astro';
+import Services from '../components/sections/Services.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import Projects from '../components/sections/Projects.astro';
+import CTA from '../components/sections/CTA.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'SolarPower Co.',
+  description: 'Leading provider of solar energy solutions for homes and businesses',
+  url: 'https://solarpowerco.com',
+  logo: 'https://solarpowerco.com/logo.png',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+1-555-123-4567',
+    contactType: 'Customer Service',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '123 Solar Street',
+    addressLocality: 'Green City',
+    addressRegion: 'GC',
+    postalCode: '12345',
+    addressCountry: 'US',
+  },
+};
+---
+
+<BaseLayout
+  title="Home"
+  description="Transform your home or business with cutting-edge solar technology. Save money, reduce your carbon footprint, and invest in a sustainable future with SolarPower Co."
+>
+  <JsonLd schema={schema} />
+  
+  <Hero />
+  <Services />
+  <Projects />
+  <Testimonials />
+  <CTA />
+</BaseLayout>

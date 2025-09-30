@@ -1,0 +1,241 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import JsonLd from '../components/JsonLd.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+import Shield from '../components/icons/Shield.astro';
+import Award from '../components/icons/Award.astro';
+import LeafEnergy from '../components/icons/LeafEnergy.astro';
+
+const values = [
+  {
+    icon: Shield,
+    title: 'Quality & Reliability',
+    description: 'We use only premium materials and cutting-edge technology to ensure your solar system performs optimally for decades.',
+  },
+  {
+    icon: LeafEnergy,
+    title: 'Sustainability',
+    description: 'Our mission is to accelerate the transition to renewable energy and create a cleaner, greener future for generations.',
+  },
+  {
+    icon: Award,
+    title: 'Customer Excellence',
+    description: 'Your satisfaction is our priority. We provide exceptional service, transparent communication, and ongoing support.',
+  },
+];
+
+const team = [
+  {
+    name: 'John Smith',
+    role: 'CEO & Founder',
+    emoji: '👨‍💼',
+    bio: '15+ years in renewable energy',
+  },
+  {
+    name: 'Sarah Williams',
+    role: 'Chief Technology Officer',
+    emoji: '👩‍💻',
+    bio: 'Solar technology innovator',
+  },
+  {
+    name: 'Michael Brown',
+    role: 'Head of Operations',
+    emoji: '👨‍🔧',
+    bio: 'Expert installation specialist',
+  },
+  {
+    name: 'Emily Davis',
+    role: 'Customer Success Manager',
+    emoji: '👩‍💼',
+    bio: 'Dedicated to client satisfaction',
+  },
+];
+
+const stats = [
+  { value: '15+', label: 'Years of Experience' },
+  { value: '5000+', label: 'Installations Completed' },
+  { value: '50MW+', label: 'Total Capacity Installed' },
+  { value: '98%', label: 'Customer Satisfaction' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About SolarPower Co.',
+  description: 'Learn about our mission, values, and commitment to providing sustainable solar energy solutions.',
+};
+---
+
+<BaseLayout
+  title="About Us"
+  description="Learn about SolarPower Co., our mission to provide sustainable solar energy solutions, and our commitment to excellence in renewable energy."
+>
+  <JsonLd schema={schema} />
+
+  <!-- Hero Section -->
+  <section class="relative py-20 bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 animate-fade-in-up">
+          Powering a Sustainable Future
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 animate-fade-in-up" style="animation-delay: 0.1s">
+          Since 2009, we've been helping homes and businesses transition to clean, renewable solar energy.
+          Our mission is to make sustainable energy accessible, affordable, and reliable for everyone.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        {stats.map((stat, index) => (
+          <div class="text-center animate-on-scroll" style={`animation-delay: ${index * 0.1}s`}>
+            <div class="text-4xl md:text-5xl font-bold text-primary-600 mb-2">{stat.value}</div>
+            <div class="text-gray-600 font-medium">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="animate-on-scroll">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
+          <div class="space-y-4 text-gray-600">
+            <p>
+              Founded in 2009 by a team of renewable energy enthusiasts, SolarPower Co. began with a simple vision: 
+              to make solar energy accessible to everyone. What started as a small local operation has grown into 
+              one of the region's most trusted solar installation companies.
+            </p>
+            <p>
+              Over the years, we've installed over 5,000 solar systems, helping families and businesses reduce their 
+              carbon footprint while saving money on energy costs. Our commitment to quality, innovation, and customer 
+              satisfaction has earned us numerous industry awards and, more importantly, the trust of our community.
+            </p>
+            <p>
+              Today, we continue to push the boundaries of solar technology, offering cutting-edge solutions that 
+              combine efficiency, durability, and sustainability. Every project we undertake brings us closer to 
+              our goal of a cleaner, greener future for all.
+            </p>
+          </div>
+        </div>
+        <div class="animate-on-scroll">
+          <!-- Illustration -->
+          <svg viewBox="0 0 400 400" class="w-full h-auto drop-shadow-xl">
+            <!-- Solar farm illustration -->
+            <rect x="0" y="250" width="400" height="150" fill="#86efac"/>
+            
+            <!-- Solar panels on stands -->
+            <g>
+              <rect x="50" y="200" width="60" height="40" fill="#1e40af" stroke="#1e3a8a" stroke-width="2"/>
+              <line x1="60" y1="240" x2="50" y2="270" stroke="#4b5563" stroke-width="3"/>
+              <line x1="100" y1="240" x2="110" y2="270" stroke="#4b5563" stroke-width="3"/>
+            </g>
+            
+            <g>
+              <rect x="140" y="180" width="60" height="40" fill="#1e40af" stroke="#1e3a8a" stroke-width="2"/>
+              <line x1="150" y1="220" x2="140" y2="250" stroke="#4b5563" stroke-width="3"/>
+              <line x1="190" y1="220" x2="200" y2="250" stroke="#4b5563" stroke-width="3"/>
+            </g>
+            
+            <g>
+              <rect x="230" y="190" width="60" height="40" fill="#1e40af" stroke="#1e3a8a" stroke-width="2"/>
+              <line x1="240" y1="230" x2="230" y2="260" stroke="#4b5563" stroke-width="3"/>
+              <line x1="280" y1="230" x2="290" y2="260" stroke="#4b5563" stroke-width="3"/>
+            </g>
+            
+            <g>
+              <rect x="310" y="210" width="60" height="40" fill="#1e40af" stroke="#1e3a8a" stroke-width="2"/>
+              <line x1="320" y1="250" x2="310" y2="280" stroke="#4b5563" stroke-width="3"/>
+              <line x1="360" y1="250" x2="370" y2="280" stroke="#4b5563" stroke-width="3"/>
+            </g>
+            
+            <!-- Sun -->
+            <circle cx="350" cy="80" r="40" fill="#fbbf24"/>
+            <g stroke="#f59e0b" stroke-width="3" stroke-linecap="round">
+              <line x1="350" y1="30" x2="350" y2="45"/>
+              <line x1="350" y1="115" x2="350" y2="130"/>
+              <line x1="300" y1="80" x2="315" y2="80"/>
+              <line x1="385" y1="80" x2="400" y2="80"/>
+            </g>
+            
+            <!-- Energy flow -->
+            <path d="M 180 220 Q 200 150 280 100" stroke="#22c55e" stroke-width="3" fill="none" stroke-dasharray="5,5">
+              <animate attributeName="stroke-dashoffset" from="0" to="100" dur="2s" repeatCount="indefinite"/>
+            </path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        subtitle="Our Values"
+        title="What Drives Us"
+        description="Our core values guide everything we do, from project planning to installation and beyond."
+      />
+
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
+        {values.map((value, index) => (
+          <Card class="text-center animate-on-scroll" style={`animation-delay: ${index * 0.1}s`}>
+            <div class="flex justify-center mb-4">
+              <value.icon class="w-16 h-16 text-primary-600" />
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
+            <p class="text-gray-600">{value.description}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        subtitle="Our Team"
+        title="Meet the Experts"
+        description="Our dedicated team of professionals brings decades of combined experience in solar energy."
+      />
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+        {team.map((member, index) => (
+          <Card class="text-center animate-on-scroll" style={`animation-delay: ${index * 0.1}s`}>
+            <div class="text-6xl mb-4">{member.emoji}</div>
+            <h3 class="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
+            <p class="text-primary-600 font-semibold mb-2">{member.role}</p>
+            <p class="text-sm text-gray-600">{member.bio}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-primary-600 to-secondary-600">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 animate-fade-in-up">
+        Ready to Join Our Solar Revolution?
+      </h2>
+      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 0.1s">
+        Let's work together to create a sustainable future. Contact us today for a free consultation.
+      </p>
+      <div class="animate-fade-in-up" style="animation-delay: 0.2s">
+        <Button href="/contact" variant="secondary" size="lg" class="!bg-white !text-primary-600 hover:!bg-gray-100">
+          Get in Touch
+        </Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

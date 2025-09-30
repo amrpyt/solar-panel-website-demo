@@ -1,0 +1,24 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<svg class={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Medal circle -->
+  <circle cx="32" cy="35" r="15" fill="#fbbf24" opacity="0.3"/>
+  <circle cx="32" cy="35" r="12" fill="#fbbf24" stroke="#f59e0b" stroke-width="2"/>
+  
+  <!-- Star -->
+  <path d="M 32 28 L 34 33 L 39 33 L 35 36 L 36 41 L 32 38 L 28 41 L 29 36 L 25 33 L 30 33 Z" fill="#fff"/>
+  
+  <!-- Ribbons -->
+  <path d="M 24 25 L 20 12 L 26 15 L 28 20" fill="#ef4444" stroke="#dc2626" stroke-width="1.5"/>
+  <path d="M 40 25 L 44 12 L 38 15 L 36 20" fill="#3b82f6" stroke="#2563eb" stroke-width="1.5"/>
+  
+  <!-- Ribbon details -->
+  <path d="M 20 12 L 18 20 L 20 18" fill="#dc2626"/>
+  <path d="M 44 12 L 46 20 L 44 18" fill="#2563eb"/>
+</svg>

@@ -1,0 +1,15 @@
+{
+  "siteTitle": "SolarPower Co.",
+  "siteDescription": "Leading provider of solar energy solutions for homes and businesses",
+  "siteUrl": "https://solarpowerco.com",
+  "companyName": "SolarPower Co.",
+  "email": "info@solarpower.com",
+  "phone": "+1 (555) 123-4567",
+  "address": "123 Solar Street, Green City, GC 12345",
+  "social": {
+    "facebook": "https://facebook.com/solarpowerco",
+    "twitter": "https://twitter.com/solarpowerco",
+    "linkedin": "https://linkedin.com/company/solarpowerco",
+    "instagram": "https://instagram.com/solarpowerco"
+  }
+}
